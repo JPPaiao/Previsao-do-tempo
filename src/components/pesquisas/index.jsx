@@ -39,10 +39,10 @@ function Pesquisas(state) {
     }
 
     return (
-        <div className='px-7 py-6'>
+        <div className='px-7'>
             <label htmlFor="search-form">
                 <input
-                    className="border-none px-3 py-2 rounded-md"
+                    className="border-none px-3 py-2 rounded-md shadow-sm shadow-black"
                     type="search"
                     name="search-form"
                     id="search-form"
@@ -51,7 +51,7 @@ function Pesquisas(state) {
                     onChange={e => setSearch(e.target.value)}
                 />
                 <input
-                    className="mx-4 px-4 py-2 bg-slate-800 text-white cursor-pointer transition-colors rounded-md hover:bg-slate-600"
+                    className="mx-4 px-4 py-2 bg-slate-800 text-white cursor-pointer transition-colors rounded-md hover:bg-slate-600 shadow-sm shadow-black"
                     type="submit"
                     value="Pesquisar"
                     onClick={() => handleSearch()}
