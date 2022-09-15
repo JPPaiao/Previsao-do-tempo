@@ -1,14 +1,19 @@
-import { Day } from "../day"
+import { connect } from 'react-redux'
+import Day from "../day"
 
-function Days({ days }) {
-    // console.log(days)
+function Days(state) {
+    const hours = state?.stateDays
+
     return (
-        <div className="flex justify-center flex-wrap max-w-[300px]">
+        <div className="flex justify-center flex-wrap max-h-[400px] max-w-[300px]">
             {
-                days.map(day => <Day key={day} day={day} />)
+                hours.map((h, i) => {
+                    console.log(h)
+                    if (i < 4) return (<Day key={i} day={h} />)
+                })
             }
         </div>
     )
 }
 
-export { Days }
+export default connect(state => (state))(Days)

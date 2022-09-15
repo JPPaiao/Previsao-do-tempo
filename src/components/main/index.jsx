@@ -1,13 +1,11 @@
 import { connect } from 'react-redux'
-import { Days } from '../days'
+import Days from '../days'
 import Pesquisas from '../pesquisas'
 
 function Main(state) {
-    console.log(state)
     const { name, prev, temps } = state?.stateToday ?? ""
     let dayName = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
     let now = new Date
-    let infos = [1, 2, 3, 4]
 
     return (
         <main className='flex flex-col justify-center items-center w-[100%] max-w-2xl m-auto'>
@@ -20,8 +18,8 @@ function Main(state) {
                             <span className="text-3xl font-semibold">{name?.city}</span>
                         </div>
                         <div className="flex flex-col items-center justify-start ">
-                            <span className="text-3xl text-zinc-800">{temps?.max}°C Max</span>
-                            <span className="text-3xl text-zinc-600">{temps?.min}°C Min</span>
+                            <span className="text-3xl text-zinc-800">{Math.round(temps?.max)}°C Max</span>
+                            <span className="text-3xl text-zinc-600">{Math.round(temps?.min)}°C Min</span>
                         </div>
                     </div>
                     <div className="flex flex-col items-center text-7xl text-center px-4">
@@ -33,8 +31,8 @@ function Main(state) {
                         <span className='text-5xl text-zinc-800 font-bold'>{temps?.temp}°C</span>
                     </div>
                 </div>
-                <div className='mx-2 my-4 h-[100%]'>
-                    <Days days={infos} />
+                <div className='mx-2 my-4'>
+                    <Days />
                 </div>
             </div>
         </main>
