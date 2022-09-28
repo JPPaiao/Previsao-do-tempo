@@ -3,13 +3,19 @@ import Day from "../day"
 
 function Days(state) {
     const hours = state?.stateDays
+    let now = new Date
+    let { weekName } = state
+    let c = now.getDay()
 
     return (
-        <div className="flex justify-center flex-wrap max-h-[400px] max-w-[300px]">
+        <div className="flex justify-center md:flex-wrap md:max-w-[300px] mb-2 md:mb-0">
             {
                 hours.map((h, i) => {
-                    console.log(h)
-                    if (i < 4) return (<Day key={i} day={h} />)
+                    if (c > 6) {
+                        c = 0
+                    }
+
+                    if (i < 4) return (<Day key={i} day={h} week={weekName[c++]} />)
                 })
             }
         </div>

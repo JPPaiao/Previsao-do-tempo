@@ -1,12 +1,12 @@
 import { connect } from 'react-redux'
 
 function Day(state) {
-    const { prev } = state?.day ?? ''
-    const { temps } = state?.day ?? ''
+    const { prev, temps } = state?.day
+    const { week } = state
 
     return (
         <div className="text-zinc-800 bg-slate-400 w-[120px] rounded-md flex flex-col items-center justify-between text-center p-2 m-2 shadow-md shadow-black">
-            <span>Semana</span>
+            <span>{week}</span>
             <img
                 className="w-[70px]"
                 src={`http://openweathermap.org/img/w/${prev.icon}.png`}
@@ -14,10 +14,10 @@ function Day(state) {
             <span>{prev.description}</span>
             <div className="flex justify-between pt-[4px]">
                 <div className="flex flex-col mx-2">
-                    <span className="text-xl font-semibold text-zinc-900">{Math.round(temps.max)}</span>
+                    <span className="text-xl font-semibold text-zinc-900">{Math.ceil(temps.max)}</span>
                 </div>
                 <div className="flex flex-col mx-2">
-                    <span className="text-xl text-zinc-700">{Math.round(temps.min)}</span>
+                    <span className="text-xl text-zinc-700">{Math.floor(temps.min)}</span>
                 </div>
             </div>
         </div>
