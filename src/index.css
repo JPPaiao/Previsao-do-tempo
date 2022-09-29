@@ -10,5 +10,7 @@
 
 body {
     height: 100vh;
-    background-color: rgb(203 213 225);
+    background: url('https://img.freepik.com/fotos-gratis/fundo-de-nuvens-do-ceu_1127-3836.jpg?size=626&ext=jpg&ga=GA1.2.1994539508.1664413658'), no-repeat;
+    background-size: cover;
+    background-blend-mode: color-dodge;
 }

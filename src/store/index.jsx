@@ -3,9 +3,16 @@ import { createStore } from 'redux'
 function reducer(state = {}, action) {
     let stateDays = []
     let stateToday = {}
+    let display = 'hidden'
 
     if (action.type === 'TOGGLE_SEARCH') {
         let api = action.searchs
+
+        if (api.days === undefined) {
+            display = 'hidden'
+        } else {
+            display = 'block'
+        }
 
         if (api.days) {
             let { list } = api.days
@@ -56,6 +63,7 @@ function reducer(state = {}, action) {
     return state = {
         stateToday,
         stateDays,
+        display
     }
 }
 

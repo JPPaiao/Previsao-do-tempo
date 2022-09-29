@@ -3,22 +3,22 @@ import Days from '../days'
 import Pesquisas from '../pesquisas'
 
 function Main(state) {
-    
     const { name, prev, temps } = state?.stateToday ?? ""
-    console.log(state)
+    const { display } = state
 
     let now = new Date
     let weekName = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
     let dayWeek = weekName[now.getDay()]
+    let moth = now.getMonth() + 1
 
     return (
         <main className='flex flex-col justify-center items-center w-[100%] m-auto'>
             <Pesquisas />
-            <div className='flex md:flex-row flex-col w-[410px] md:w-auto mt-3'>
+            <div className={`flex md:flex-row flex-col w-[410px] md:w-auto mt-3 ${display}`}>
                 <div className='min-h-[350px] min-w-[360px] bg-slate-400 rounded-md p-2 my-2 shadow-md shadow-black flex flex-col justify-center'>
                     <div className="px-3 flex justify-between text-zinc-800">
                         <div className='flex flex-col max-w-[180px]'>
-                            <span className="text-xl pl-[2px]">{dayWeek + ', ' + now.getDate()}</span>
+                            <span className="text-xl pl-[2px]">{dayWeek + ', ' + now.getDate() + '/' + moth}</span>
                             <span className="text-3xl font-semibold">{name?.city}</span>
                         </div>
                         <div className="flex flex-col items-center justify-start ">
