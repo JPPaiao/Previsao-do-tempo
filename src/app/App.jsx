@@ -4,11 +4,9 @@ import { Header } from '../components/header'
 function App() {
 
     return (
-        <div>
-            <div className='flex flex-col'>
-                <Header />
-                <Main />
-            </div>
+        <div className='flex flex-col'>
+            <Header />
+            <Main />
         </div>
     )
 }

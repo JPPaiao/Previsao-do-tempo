@@ -8,11 +8,7 @@ function reducer(state = {}, action) {
     if (action.type === 'TOGGLE_SEARCH') {
         let api = action.searchs
 
-        if (api.days === undefined) {
-            display = 'hidden'
-        } else {
-            display = 'block'
-        }
+        api.days === undefined ? display = 'hidden' : display = 'block'
 
         if (api.days) {
             let { list } = api.days
